@@ -10,7 +10,7 @@ Exploratory analysis of the Northwind sample database (CSV exports in `data/`, s
 Colab opens Jupyter notebooks straight from GitHub, so use `notebook.ipynb` (a Jupyter export of
 `notebook.py`).
 
-1. Open https://colab.research.google.com/github/We-Gold/mis587-northwind-analysis/blob/main/notebook.ipynb
+1. Open https://colab.research.google.com/github/We-Gold/mis587-northwind-analysis/blob/af6e809/notebook.ipynb
 
 2. Run the first cell. On Colab it clones this repository (for the data files and ER diagram),
    changes into it, and installs the packages in `requirements.txt`.
