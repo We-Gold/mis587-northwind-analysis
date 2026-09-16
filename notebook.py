@@ -49,7 +49,11 @@ def intro(mo):
 
 @app.cell(hide_code=True)
 def er_diagram(mo):
-    mo.vstack([mo.md("## Entity-relationship diagram"), mo.image(src="northwind-er-diagram.png")])
+    mo.md("""
+    ## Entity-relationship diagram
+
+    ![Northwind ER diagram](https://raw.githubusercontent.com/We-Gold/mis587-northwind-analysis/main/northwind-er-diagram.png)
+    """)
     return
 
 
@@ -69,22 +73,25 @@ def load_data(Path, pd):
     return (tables,)
 
 
+@app.cell
+def summary_md(mo):
+    mo.md("""
+    ## Tables at a glance
+    """)
+    return
+
+
 @app.cell(hide_code=True)
-def table_summary(mo, pd, tables):
-    mo.vstack(
+def table_summary(pd, tables):
+    pd.DataFrame(
         [
-            mo.md("## Tables at a glance"),
-            pd.DataFrame(
-                [
-                    {
-                        "table": _name,
-                        "rows": len(_df),
-                        "columns": _df.shape[1],
-                        "column names": ", ".join(_df.columns),
-                    }
-                    for _name, _df in tables.items()
-                ]
-            ),
+            {
+                "table": _name,
+                "rows": len(_df),
+                "columns": _df.shape[1],
+                "column names": ", ".join(_df.columns),
+            }
+            for _name, _df in tables.items()
         ]
     )
     return
